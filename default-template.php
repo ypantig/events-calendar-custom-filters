@@ -26,6 +26,8 @@ get_header();
     ];
 
     $terms = new \WP_Term_Query( $termArgs );
+
+    // get the terms from tribe events category
     $terms = $terms->terms;
 
   ?>
@@ -35,6 +37,7 @@ get_header();
     <?php
 
       $parameter = '';
+      // get the URL parameter
       if ( isset( $_REQUEST[ 'tribe_event_category' ] ) ) {
         $parameter = $_REQUEST[ 'tribe_event_category' ];
       }
@@ -46,16 +49,20 @@ get_header();
       <span>All</span>
     </label>
 
+    <?php // go through each of the terms to display them ?>
     <?php foreach ( $terms as $term ): ?>
       <?php
 
         $selected = '';
 
+        // check if the URL parameter is the same as the
+        // current term we're looping through
         if ( $term->slug == $parameter ) {
           $selected = ' checked="checked"';
         }
 
       ?>
+      
       <label>
         <input type="radio" name="category" value="<?php echo $term->slug ?>" onclick="window.location.href='<?php echo get_post_type_archive_link( 'tribe_events' ); ?>?tribe_event_category=<?php echo $term->slug; ?>'" <?php echo $selected; ?>>
         <span><?php echo $term->name; ?></span>
