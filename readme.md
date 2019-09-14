@@ -14,7 +14,8 @@ Set the value of the input to the slug
 `<?php echo $term->slug ?>`
 
 On click, set the `window.location.href` to have a `tribe_event_category` parameter with the value of the term (slug).
-`window.location.href='<?php echo get_post_type_archive_link( 'tribe_events' ); ?>?tribe_event_category=<?php echo $term->slug; ?>`
+```window.location.href='<?php echo get_post_type_archive_link( 'tribe_events' ); ?>?tribe_event_category=<?php echo $term->slug; ?>
+```
 
 Check if the parameter is the same value as the current term that we're looping through.
 ```
