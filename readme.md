@@ -29,4 +29,3 @@ if ( $term->slug == $parameter ) {
 ## Future Considerations
 
 - Create a JavaScript function to do the filtering via ajax instead of refreshing the page
-- Add styles
